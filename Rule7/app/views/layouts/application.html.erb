@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rule7</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :mosaic_application, media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag :mosaic_theme, media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_importmap_tags %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+
+  <body>
+  <nav aria-label="Primary" class="sovos-nav">
+    <div class="sovos-nav-content">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/main_menu' %>
+    </div>
+        <!-- /.sovosNavContent -->
+  </nav>
+    <header class="sovos-page-header">
+      <div class="sovos-title-bar">
+        <%= render 'layouts/breadcrumb' %>
+        <div class="titleRow">
+          <h1 class="titleRowTitle typography-h4" role="heading">
+            <% if content_for?(:page_title) %>
+              <%= yield :page_title %>
+            <% else %>
+              <%= action_name != 'index' ? t(action_name) : "#{controller_name}##{action_name} sem page_title" %>
+            <% end %>
+          </h1>
+        </div>
+      </div>
+      </header>
+      <main class="sovos-main-content" id="main-content">
+        <div class="sovos-content-container">
+          <%= yield %>
+        </div>
+      </main>
+  </body>
+</html>

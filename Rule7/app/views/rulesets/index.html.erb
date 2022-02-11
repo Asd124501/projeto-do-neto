@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= page_title('Rulesets') %>
+
+<div id="rulesets">
+  <% @rulesets.each do |ruleset| %>
+    <%= render ruleset %>
+    <p>
+      <%= link_to "Show this ruleset", ruleset %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New ruleset", new_ruleset_path %>

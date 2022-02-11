@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= page_title('Ruleset Details') %>
+
+<%= render @ruleset %>
+
+<div>
+  <%= link_to "Edit this ruleset", edit_ruleset_path(@ruleset) %> |
+  <%= link_to "Back to rulesets", rulesets_path %>
+
+  <%= button_to "Destroy this ruleset", @ruleset, method: :delete, class: 'btn', data: { confirm: 'Are you sure?'} %>
+</div>

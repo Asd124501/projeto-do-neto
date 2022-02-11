@@ -1,0 +1,48 @@
+<%= form_with(model: ruleset) do |form| %>
+  <% if ruleset.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ruleset.errors.count, "error") %> prohibited this ruleset from being saved:</h2>
+
+      <ul>
+        <% ruleset.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="row">
+    <div class="col s12">
+      <div class="input-field filled">
+        <%= form.label :name, class: 'active' %>
+        <%= form.text_field :name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="input-field filled">
+        <%= form.label :tags, class: 'active' %>
+        <%= form.text_field :tags %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="input-field filled">
+        <%= form.label :number_of_rules, class: 'active' %>
+        <%= form.text_field :number_of_rules %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div>
+        <%= form.submit nil, class: 'btn' %>
+      </div>
+    </div>
+  </div>  
+<% end %>
